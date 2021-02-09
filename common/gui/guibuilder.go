@@ -1,4 +1,4 @@
-package common
+package gui
 
 type PageType int
 

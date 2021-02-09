@@ -1,4 +1,4 @@
-package common
+package hid
 
 var KEYCODE_WINDOWS_FROM_HID = []byte{
 	255, 255, 255, 255, 30, 48, 46, 32, 18, 33, 34, 35, 23, 36, 37, 38, 50, 49, 24, 25, 16, 19, 31, 20,
