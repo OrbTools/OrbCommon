@@ -1,5 +1,6 @@
 package gui
 
+//PageType PGrid, PCircle or PList
 type PageType int
 
 const (
@@ -11,10 +12,12 @@ const (
 	PList
 )
 
+//GUI a GUI tree
 type GUI struct {
 	Pages []Page
 }
 
+//Page A page of a binding GUI
 type Page struct {
 	Hive string
 	Name string
@@ -22,6 +25,7 @@ type Page struct {
 	Type PageType
 }
 
+//Key a keybind
 type Key struct {
 	KeyID   int
 	KeyName string
