@@ -26,6 +26,9 @@ var GUI = &gui.GUI{
 					KeyID:   1,
 					KeyName: "02",
 				}, {
+					KeyID:   2,
+					KeyName: "03",
+				}, {
 					KeyID:   3,
 					KeyName: "04",
 				}, {
