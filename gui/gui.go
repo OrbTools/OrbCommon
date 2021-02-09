@@ -14,14 +14,14 @@ const (
 
 //GUI a GUI tree
 type GUI struct {
-	Pages []Page
+	Pages []*Page
 }
 
 //Page A page of a binding GUI
 type Page struct {
 	Hive string
 	Name string
-	Keys []Key
+	Keys []*Key
 	Type PageType
 }
 
