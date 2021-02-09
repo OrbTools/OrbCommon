@@ -2,9 +2,8 @@ package orbweaver
 
 import (
 	"encoding/binary"
+	"io"
 	"os"
-
-	"fyne.io/fyne"
 )
 
 //BINDING Map of Default Keys
@@ -39,13 +38,13 @@ func LoadKM(file string) *KeyMap {
 }
 
 //SavePKMKeymap saves an orb after edit
-func SavePKMKeymap(mapped *PKM, file fyne.URIWriteCloser) {
+func SavePKMKeymap(mapped *PKM, file io.WriteCloser) {
 	binary.Write(file, binary.LittleEndian, mapped)
 	file.Close()
 }
 
 //LoadPKMKeymap loads an orb for editing
-func LoadPKMKeymap(file fyne.URIReadCloser) *PKM {
+func LoadPKMKeymap(file io.ReadCloser) *PKM {
 	mapped := new(PKM)
 	binary.Read(file, binary.LittleEndian, mapped)
 	file.Close()
