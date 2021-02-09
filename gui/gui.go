@@ -29,4 +29,5 @@ type Page struct {
 type Key struct {
 	KeyID   int
 	KeyName string
+	Default uint16
 }
