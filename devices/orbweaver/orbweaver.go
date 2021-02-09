@@ -12,13 +12,13 @@ import (
 var BINDING = [...]byte{41, 2, 3, 4, 5, 15, 16, 17, 18, 19, 58, 30, 31, 32, 33, 42, 44, 45, 46, 47, 56, 103, 106, 108, 105, 57}
 
 //GUI gui definition for an orbweaver
-var GUI = &gui.GUI{
-	Pages: []*gui.Page{
+var GUI = gui.GUI{
+	Pages: []gui.Page{
 		{
 			Hive: "MIP",
 			Name: "Grid",
 			Type: gui.PGrid,
-			Keys: []*gui.Key{
+			Keys: []gui.Key{
 				{
 					KeyID:   0,
 					KeyName: "01",
@@ -85,7 +85,7 @@ var GUI = &gui.GUI{
 			Hive: "SIP",
 			Name: "Side Keys",
 			Type: gui.PList,
-			Keys: []*gui.Key{
+			Keys: []gui.Key{
 				{
 					KeyID:   0,
 					KeyName: "Upper Button",
