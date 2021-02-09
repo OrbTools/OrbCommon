@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/OrbTools/OrbCommon/common/gui"
+	"github.com/OrbTools/OrbCommon/gui"
 )
 
 //BINDING Map of Default Keys
