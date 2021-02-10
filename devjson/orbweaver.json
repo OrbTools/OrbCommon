@@ -1,6 +1,11 @@
 {
     "BINDLEN": 26,
-    "EB": 3,
+    "EB": [
+        {
+            "Name": "Color",
+            "Size": 3
+        }
+    ],
     "BINDING": [
         41,
         2,
