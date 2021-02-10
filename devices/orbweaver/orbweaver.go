@@ -138,14 +138,8 @@ func LoadKM(file string) *KeyMap {
 	return mapped
 }
 
-//SavePKMKeymap saves an orb after edit
-func SavePKMKeymap(mapped *PKM, file io.WriteCloser) {
-	binary.Write(file, binary.LittleEndian, mapped)
-	file.Close()
-}
-
 //LoadPKMKeymap loads an orb for editing
-func LoadPKMKeymap(file io.ReadCloser) *PKM {
+func LoadPKMKeymap(file io.ReadCloser) interface{} {
 	mapped := new(PKM)
 	binary.Read(file, binary.LittleEndian, mapped)
 	file.Close()
