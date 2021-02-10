@@ -2,10 +2,15 @@ package devices
 
 import "github.com/OrbTools/OrbCommon/gui"
 
+//ExtraBytes defines extra bytes to a type
+type ExtraBytes struct {
+	Name string
+	Size int
+}
+
 //Device defines a JSON device
-//NYI
 type Device struct {
-	EB      int
+	EB      []*ExtraBytes
 	BINDLEN int
 	BINDING []byte
 	GUI     gui.GUI
