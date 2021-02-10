@@ -10,9 +10,8 @@ type ExtraBytes struct {
 
 //Device defines a JSON device
 type Device struct {
-	EB      []*ExtraBytes
-	BINDLEN int
 	BINDING []byte
+	EB      []*ExtraBytes
 	GUI     gui.GUI
 }
 
