@@ -1,9 +1,6 @@
 package devices
 
 import (
-	"encoding/binary"
-	"io"
-
 	"github.com/OrbTools/OrbCommon/gui"
 )
 
@@ -23,10 +20,4 @@ type Device struct {
 //DeviceList List of supported devices
 var DeviceList = []string{
 	"Orbweaver",
-}
-
-//SavePKMKeymap saves an orb after edit
-func SavePKMKeymap(mapped interface{}, file io.WriteCloser) {
-	binary.Write(file, binary.LittleEndian, mapped)
-	file.Close()
 }
