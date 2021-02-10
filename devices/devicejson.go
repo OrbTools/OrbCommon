@@ -10,3 +10,8 @@ type Device struct {
 	BINDING []byte
 	GUI     gui.GUI
 }
+
+//DeviceList List of supported devices
+var DeviceList = []string{
+	"Orbweaver",
+}
