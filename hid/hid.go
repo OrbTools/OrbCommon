@@ -26,7 +26,7 @@ type Key struct {
 
 var Mappings KeyMaps = KeyMaps{}
 
-//go:embed hid/generated.json
+//go:embed generated.json
 var file []byte
 
 func init() {
