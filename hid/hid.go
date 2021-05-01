@@ -1,6 +1,9 @@
 package hid
 
-import "encoding/json"
+import (
+	_ "embed"
+	"encoding/json"
+)
 
 type KeyMaps struct {
 	USB   map[uint16]Key
