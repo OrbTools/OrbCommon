@@ -29,7 +29,7 @@ type Key struct {
 }
 
 func main() {
-	rege, _ := regexp.Compile("DOM_CODE\\(0x[0-9a-f]{2}([0-9a-f]*), 0x([0-9a-f]*), 0x([0-9a-f]*), 0x([0-9a-f]*), 0x([0-9a-f]*), \"?[A-Za-z]*\"?, ([A-Za-z_]*)")
+	rege, _ := regexp.Compile("DOM_CODE\\(0x07([0-9a-f]*), 0x([0-9a-f]*), 0x([0-9a-f]*), 0x([0-9a-f]*), 0x([0-9a-f]*), \"?[A-Za-z0-9]*\"?, ([A-Za-z_0-9]*)")
 	//DOM_CODE(USB, evdev, XKB, Win, Mac, _, Code)
 	fil, _ := os.OpenFile("hid/data/keycode_data.inc", 0, fs.FileMode(os.O_RDONLY))
 	byts, _ := io.ReadAll(fil)
