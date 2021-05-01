@@ -10,9 +10,9 @@ import (
 )
 
 type KeyMaps struct {
-	USB   map[uint16]Key
-	EVDEV map[uint16]Key
-	XKB   map[uint16]Key
+	Usb   map[uint16]Key
+	Evdev map[uint16]Key
+	Xkb   map[uint16]Key
 	Win   map[uint16]Key
 	Mac   map[uint16]Key
 	Code  map[string]Key
@@ -20,7 +20,7 @@ type KeyMaps struct {
 }
 
 type Key struct {
-	USB   uint16
+	Usb   uint16
 	Evdev uint16
 	Xkb   uint16
 	Win   uint16
@@ -36,9 +36,9 @@ func main() {
 	fil.Close()
 	matches := rege.FindAllSubmatch(byts, -1)
 	KeyMaps := KeyMaps{
-		USB:   make(map[uint16]Key),
-		EVDEV: make(map[uint16]Key),
-		XKB:   make(map[uint16]Key),
+		Usb:   make(map[uint16]Key),
+		Evdev: make(map[uint16]Key),
+		Xkb:   make(map[uint16]Key),
 		Win:   make(map[uint16]Key),
 		Mac:   make(map[uint16]Key),
 		Code:  make(map[string]Key),
@@ -51,16 +51,16 @@ func main() {
 		W, _ := strconv.ParseUint(string(bar[4]), 16, 16)
 		M, _ := strconv.ParseUint(string(bar[5]), 16, 16)
 		Keys := Key{
-			USB:   uint16(U),
+			Usb:   uint16(U),
 			Evdev: uint16(E),
 			Xkb:   uint16(X),
 			Win:   uint16(W),
 			Mac:   uint16(M),
 			Code:  string(bar[6]),
 		}
-		KeyMaps.USB[uint16(U)] = Keys
-		KeyMaps.EVDEV[uint16(E)] = Keys
-		KeyMaps.XKB[uint16(X)] = Keys
+		KeyMaps.Usb[uint16(U)] = Keys
+		KeyMaps.Evdev[uint16(E)] = Keys
+		KeyMaps.Xkb[uint16(X)] = Keys
 		KeyMaps.Win[uint16(W)] = Keys
 		KeyMaps.Mac[uint16(M)] = Keys
 		KeyMaps.Code[string(bar[6])] = Keys
