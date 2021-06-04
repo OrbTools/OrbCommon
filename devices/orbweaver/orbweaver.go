@@ -139,7 +139,7 @@ func LoadKM(file string) *KeyMap {
 }
 
 //SavePKMKeymap saves an orb after edit
-func SavePKMKeymap(mapped *PKM, file io.WriteCloser) {
+func SavePKMKeymap(mapped interface{}, file io.WriteCloser) {
 	binary.Write(file, binary.LittleEndian, mapped)
 	file.Close()
 }
