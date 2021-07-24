@@ -32,19 +32,6 @@ var file []byte
 func init() {
 	json.Unmarshal(file, &Mappings)
 }
-func GetWindowsFromHid(uv uint16) uint16 {
-	return Mappings.Usb[uv].Win
-}
-func GetHidFromWindows(uv uint16) uint16 {
-	return Mappings.Win[uv].Usb
-}
-
-func GetLinuxFromHid(uv uint16) uint16 {
-	return Mappings.Usb[uv].Evdev
-}
-func GetHidFromLinux(uv uint16) uint16 {
-	return Mappings.Evdev[uv].Usb
-}
 
 func GetMappingFromHID(uv uint16) Key {
 	return Mappings.Usb[uv]
@@ -60,4 +47,8 @@ func GetMappingFromLinux(uv uint16) Key {
 
 func GetMappingFromName(name string) Key {
 	return Mappings.Code[name]
+}
+
+func GetMappingFromX(code uint16) Key {
+	return Mappings.Xkb[code]
 }
