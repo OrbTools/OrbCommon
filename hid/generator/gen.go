@@ -58,11 +58,21 @@ func main() {
 			Mac:   uint16(M),
 			Code:  string(bar[6]),
 		}
-		KeyMaps.Usb[uint16(U)] = Keys
-		KeyMaps.Evdev[uint16(E)] = Keys
-		KeyMaps.Xkb[uint16(X)] = Keys
-		KeyMaps.Win[uint16(W)] = Keys
-		KeyMaps.Mac[uint16(M)] = Keys
+		if _, ok := KeyMaps.Usb[uint16(U)]; !ok {
+			KeyMaps.Usb[uint16(U)] = Keys
+		}
+		if _, ok := KeyMaps.Evdev[uint16(E)]; !ok {
+			KeyMaps.Evdev[uint16(E)] = Keys
+		}
+		if _, ok := KeyMaps.Xkb[uint16(X)]; !ok {
+			KeyMaps.Xkb[uint16(X)] = Keys
+		}
+		if _, ok := KeyMaps.Win[uint16(W)]; !ok {
+			KeyMaps.Win[uint16(W)] = Keys
+		}
+		if _, ok := KeyMaps.Mac[uint16(M)]; !ok {
+			KeyMaps.Mac[uint16(M)] = Keys
+		}
 		KeyMaps.Code[string(bar[6])] = Keys
 		Arr = append(Arr, Keys)
 	}

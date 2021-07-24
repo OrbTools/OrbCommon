@@ -60,22 +60,22 @@ var GUI = &gui.GUI{
 					KeyName: "13",
 				}, {
 					KeyID:   13,
-					KeyName: "11",
+					KeyName: "14",
 				}, {
 					KeyID:   14,
-					KeyName: "11",
+					KeyName: "15",
 				}, {
 					KeyID:   15,
-					KeyName: "11",
+					KeyName: "16",
 				}, {
 					KeyID:   16,
-					KeyName: "11",
+					KeyName: "17",
 				}, {
 					KeyID:   17,
-					KeyName: "11",
+					KeyName: "18",
 				}, {
 					KeyID:   18,
-					KeyName: "11",
+					KeyName: "19",
 				}, {
 					KeyID:   19,
 					KeyName: "20",
@@ -139,7 +139,7 @@ func LoadKM(file string) *KeyMap {
 }
 
 //SavePKMKeymap saves an orb after edit
-func SavePKMKeymap(mapped *PKM, file io.WriteCloser) {
+func SavePKMKeymap(mapped interface{}, file io.WriteCloser) {
 	binary.Write(file, binary.LittleEndian, mapped)
 	file.Close()
 }
