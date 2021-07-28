@@ -38,7 +38,6 @@
     ],
     "GuiPages": [
         {
-            "Hive": "MIP",
             "Name": "Grid",
             "Type": "PGrid",
             "Keys": [
@@ -125,7 +124,6 @@
             ]
         },
         {
-            "Hive": "SIP",
             "Name": "Side Keys",
             "Type": "PList",
             "Keys": [

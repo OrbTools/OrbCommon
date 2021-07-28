@@ -25,7 +25,6 @@ type DeviceDef struct {
 		ProdID     int
 	}
 	GuiPages []struct {
-		Hive string
 		Name string
 		Type string
 		Keys []struct {
