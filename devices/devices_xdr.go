@@ -20,7 +20,10 @@ func init() {
 	for _, file := range files {
 		dev := new(DeviceDef)
 		data, _ := df.ReadFile("xdr/" + file.Name())
-		xdr.Unmarshal(bytes.NewReader(data), dev)
+		_, err xdr.Unmarshal(bytes.NewReader(data), dev)
+		if err!=nil {
+			panic(err.Error())
+		}
 		DeviceTypes[strings.Split(file.Name(), ".")[0]] = dev
 	}
 }
@@ -28,7 +31,10 @@ func init() {
 //LoadKeymap Load Orbmap KM structure
 func LoadKeymap(file io.ReadCloser, dev *DeviceDef) *KeyMap {
 	mapped := new(KeyMap)
-	xdr.Unmarshal(file, mapped)
+	_, err := xdr.Unmarshal(file, mapped)
+	if err != nil {
+		panic(err.Error())
+	}
 	file.Close()
 	return mapped
 }
