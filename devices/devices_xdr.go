@@ -30,7 +30,7 @@ func init() {
 func LoadKeymap(file string, dev *DeviceDef) *KeyMap {
 	mapped := new(KeyMap)
 	of, _ := os.Open(file)
-	xdr.Unmarshal(of, KeyMap)
+	xdr.Unmarshal(of, mapped)
 	return mapped
 }
 
