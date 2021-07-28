@@ -12,5 +12,5 @@ import (
 var file []byte
 
 func init() {
-	xdr.Unmarshal(bytes.NewReader(file), Mappings)
+	xdr.Unmarshal(bytes.NewReader(file), &Mappings)
 }
