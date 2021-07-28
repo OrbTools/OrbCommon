@@ -8,7 +8,6 @@ import (
 	"encoding/json"
 	"io"
 	"io/fs"
-	"os"
 	"strings"
 )
 
@@ -27,18 +26,16 @@ func init() {
 }
 
 //LoadKM Load Orbmap KM structure
-func LoadKeymap(file string, dev *DeviceDef) *KeyMap {
+func LoadKeymap(file io.ReadCloser, dev *DeviceDef) *KeyMap {
 	mapped := new(KeyMap)
-	of, _ := os.Open(file)
-	defer of.Close()
 	mapped.Keymap = make([]uint16, dev.NumKeys)
-	binary.Read(of, binary.LittleEndian, mapped.Keymap)
-	binary.Read(of, binary.LittleEndian, mapped.Color)
+	binary.Read(file, binary.LittleEndian, mapped.Keymap)
+	binary.Read(file, binary.LittleEndian, mapped.Color)
 	return mapped
 }
 
 //SavePKMKeymap saves an orb after edit
-func SaveKeymap(mapped interface{}, file io.WriteCloser) {
+func SaveKeymap(file io.WriteCloser, mapped interface{}) {
 	binary.Write(file, binary.LittleEndian, mapped)
 	file.Close()
 }
