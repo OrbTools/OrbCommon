@@ -20,7 +20,7 @@ func init() {
 	for _, file := range files {
 		dev := new(DeviceDef)
 		data, _ := df.ReadFile("xdr/" + file.Name())
-		xdr.Unmarshal(data, dev)
+		xdr.Unmarshal(bytes.NewReader(data), dev)
 		DeviceTypes[strings.Split(file.Name(), ".")[0]] = dev
 	}
 }
