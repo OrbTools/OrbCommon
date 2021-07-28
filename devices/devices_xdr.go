@@ -3,6 +3,7 @@
 package devices
 
 import (
+	"bytes"
 	"embed"
 	xdr "github.com/davecgh/go-xdr/xdr2"
 	"io"
