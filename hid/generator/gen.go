@@ -7,6 +7,8 @@ import (
 	"os"
 	"regexp"
 	"strconv"
+
+	xdr "github.com/davecgh/go-xdr/xdr2"
 )
 
 type KeyMaps struct {
@@ -78,7 +80,10 @@ func main() {
 	}
 	KeyMaps.Arr = Arr
 	out, _ := os.Create("hid/generated.json")
+	xdo, _ := os.Create("hid/generated.bin")
+	defer xdo.Close()
 	defer out.Close()
 	jso, _ := json.Marshal(KeyMaps)
+	xdr.Marshal(xdo, KeyMaps)
 	out.Write(jso)
 }

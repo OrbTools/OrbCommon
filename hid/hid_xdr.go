@@ -1,8 +1,11 @@
+// +build xdr
+
 package hid
 
 import (
+	"bytes"
 	_ "embed"
-	"encoding/json"
+	xdr "github.com/davecgh/go-xdr/xdr2"
 )
 
 type KeyMaps struct {
@@ -26,11 +29,11 @@ type Key struct {
 
 var Mappings KeyMaps = KeyMaps{}
 
-//go:embed generated.json
+//go:embed generated.bin
 var file []byte
 
 func init() {
-	json.Unmarshal(file, &Mappings)
+	xdr.Unmarshal(bytes.NewReader(file), Mappings)
 }
 
 func GetMappingFromHID(uv uint16) Key {
