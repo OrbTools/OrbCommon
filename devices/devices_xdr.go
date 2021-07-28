@@ -8,7 +8,6 @@ import (
 	xdr "github.com/davecgh/go-xdr/xdr2"
 	"io"
 	"io/fs"
-	"os"
 	"strings"
 )
 
@@ -29,7 +28,7 @@ func init() {
 //LoadKeymap Load Orbmap KM structure
 func LoadKeymap(file io.ReadCloser, dev *DeviceDef) *KeyMap {
 	mapped := new(KeyMap)
-	xdr.Unmarshal(of, mapped)
+	xdr.Unmarshal(file, mapped)
 	return mapped
 }
 
