@@ -35,7 +35,7 @@ func LoadKeymap(file io.ReadCloser, dev *DeviceDef) *KeyMap {
 	return mapped
 }
 
-//SavePKMKeymap saves an orb after edit
+//SaveKeymap Saves Orbmap KM structure
 func SaveKeymap(file io.WriteCloser, mapped interface{}) {
 	binary.Write(file, binary.LittleEndian, mapped)
 	file.Close()
