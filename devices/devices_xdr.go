@@ -4,7 +4,7 @@ package devices
 
 import (
 	"embed"
-	"github.com/davecgh/go-xdr/xdr2"
+	xdr "github.com/davecgh/go-xdr/xdr2"
 	"io"
 	"io/fs"
 	"os"
@@ -12,20 +12,20 @@ import (
 )
 
 //go:embed xdr/*
-var data embed.FS
+var df embed.FS
 
 func init() {
 	DeviceTypes = make(map[string]*DeviceDef)
-	files, _ := fs.ReadDir(data, "xdr")
+	files, _ := fs.ReadDir(df, "xdr")
 	for _, file := range files {
 		dev := new(DeviceDef)
-		data, _ := jsons.ReadFile("xdr/" + file.Name())
-		xdr2.Unmarshal(data, dev)
+		data, _ := df.ReadFile("xdr/" + file.Name())
+		xdr.Unmarshal(data, dev)
 		DeviceTypes[strings.Split(file.Name(), ".")[0]] = dev
 	}
 }
 
-//LoadKM Load Orbmap KM structure
+//LoadKeymap Load Orbmap KM structure
 func LoadKeymap(file string, dev *DeviceDef) *KeyMap {
 	mapped := new(KeyMap)
 	of, _ := os.Open(file)

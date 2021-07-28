@@ -13,14 +13,14 @@ import (
 )
 
 //go:embed json/*
-var data embed.FS
+var df embed.FS
 
 func init() {
 	DeviceTypes = make(map[string]*DeviceDef)
-	files, _ := fs.ReadDir(data, "json")
+	files, _ := fs.ReadDir(df, "json")
 	for _, file := range files {
 		dev := new(DeviceDef)
-		data, _ := data.ReadFile("json/" + file.Name())
+		data, _ := df.ReadFile("json/" + file.Name())
 		json.Unmarshal(data, dev)
 		DeviceTypes[strings.Split(file.Name(), ".")[0]] = dev
 	}
