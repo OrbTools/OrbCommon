@@ -31,6 +31,7 @@ func LoadKeymap(file io.ReadCloser, dev *DeviceDef) *KeyMap {
 	mapped.Keymap = make([]uint16, dev.NumKeys)
 	binary.Read(file, binary.LittleEndian, mapped.Keymap)
 	binary.Read(file, binary.LittleEndian, mapped.Color)
+	file.Close()
 	return mapped
 }
 

@@ -29,10 +29,11 @@ func init() {
 func LoadKeymap(file io.ReadCloser, dev *DeviceDef) *KeyMap {
 	mapped := new(KeyMap)
 	xdr.Unmarshal(file, mapped)
+	file.Close()
 	return mapped
 }
 
-//SavePKMKeymap saves an orb after edit
+//SaveKeymap Save Orbmap KM struction
 func SaveKeymap(file io.WriteCloser, mapped interface{}) {
 	xdr.Marshal(file, mapped)
 	file.Close()
