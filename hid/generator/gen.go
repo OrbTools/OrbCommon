@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"github.com/OrbTools/OrbCommon/hid"
-	xdr "github.com/davecgh/go-xdr/xdr2"
+	xdr "github.com/minizbot2012/minxdr"
 	"io"
 	"io/fs"
 	"os"

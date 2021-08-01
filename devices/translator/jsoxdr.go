@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/OrbTools/OrbCommon/devices"
-	xdr "github.com/davecgh/go-xdr/xdr2"
+	xdr "github.com/minizbot2012/minxdr"
 )
 
 func main() {

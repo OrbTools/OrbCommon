@@ -5,7 +5,7 @@ package devices
 import (
 	"bytes"
 	"embed"
-	xdr "github.com/davecgh/go-xdr/xdr2"
+	xdr "github.com/minizbot2012/minxdr"
 	"io"
 	"io/fs"
 	"strings"

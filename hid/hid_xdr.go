@@ -5,7 +5,7 @@ package hid
 import (
 	"bytes"
 	_ "embed"
-	xdr "github.com/davecgh/go-xdr/xdr2"
+	xdr "github.com/minizbot2012/minxdr"
 )
 
 //go:embed generated.bin
