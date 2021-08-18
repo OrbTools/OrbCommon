@@ -1,3 +1,4 @@
+//go:build xdr
 // +build xdr
 
 package devices
