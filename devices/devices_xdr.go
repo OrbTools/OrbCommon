@@ -6,7 +6,7 @@ package devices
 import (
 	"bytes"
 	"embed"
-	xdr "github.com/minizbot2012/minxdr"
+	xdr "github.com/Minizbot2012/minxdr"
 	"io"
 	"io/fs"
 	"strings"
