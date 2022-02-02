@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/Minizbot2012/minxdr"
-	"github.com/OrbTools/OrbCommon/hid"
+	"github.com/OrbTools/OrbCommon/hid/structs"
 	"io"
 	"io/fs"
 	"os"
@@ -17,22 +17,22 @@ func main() {
 	byts, _ := io.ReadAll(fil)
 	fil.Close()
 	matches := rege.FindAllSubmatch(byts, -1)
-	KeyMaps := hid.KeyMaps{
-		Usb:   make(map[uint16]hid.Key),
-		Evdev: make(map[uint16]hid.Key),
-		Xkb:   make(map[uint16]hid.Key),
-		Win:   make(map[uint16]hid.Key),
-		Mac:   make(map[uint16]hid.Key),
-		Code:  make(map[string]hid.Key),
+	KeyMaps := structs.KeyMaps{
+		Usb:   make(map[uint16]structs.Key),
+		Evdev: make(map[uint16]structs.Key),
+		Xkb:   make(map[uint16]structs.Key),
+		Win:   make(map[uint16]structs.Key),
+		Mac:   make(map[uint16]structs.Key),
+		Code:  make(map[string]structs.Key),
 	}
-	Arr := make([]hid.Key, 0)
+	Arr := make([]structs.Key, 0)
 	for _, bar := range matches {
 		U, _ := strconv.ParseUint(string(bar[1]), 16, 16)
 		E, _ := strconv.ParseUint(string(bar[2]), 16, 16)
 		X, _ := strconv.ParseUint(string(bar[3]), 16, 16)
 		W, _ := strconv.ParseUint(string(bar[4]), 16, 16)
 		M, _ := strconv.ParseUint(string(bar[5]), 16, 16)
-		Keys := hid.Key{
+		Keys := structs.Key{
 			Usb:   uint16(U),
 			Evdev: uint16(E),
 			Xkb:   uint16(X),
