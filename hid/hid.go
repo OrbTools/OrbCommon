@@ -14,7 +14,7 @@ func init() {
 	minxdr.Unmarshal(bytes.NewReader(file), &Mappings)
 }
 
-var Mappings := structs.KeyMaps{}
+var Mappings structs.KeyMaps
 
 func GetMappingFromHID(uv uint16) structs.Key {
 	return Mappings.Usb[uv]
