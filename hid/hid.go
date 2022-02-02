@@ -4,7 +4,7 @@ import (
 	"bytes"
 	_ "embed"
 	"github.com/Minizbot2012/minxdr"
-	structs "github.com/OrbTools/OrbCommon/hid/structs"
+	"github.com/OrbTools/OrbCommon/hid/structs"
 )
 
 //go:embed generated.bin
@@ -14,7 +14,7 @@ func init() {
 	minxdr.Unmarshal(bytes.NewReader(file), &Mappings)
 }
 
-var Mappings KeyMaps = structs.KeyMaps{}
+var Mappings := structs.KeyMaps{}
 
 func GetMappingFromHID(uv uint16) structs.Key {
 	return Mappings.Usb[uv]
