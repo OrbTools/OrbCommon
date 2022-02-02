@@ -1,5 +1,11 @@
 package hid
 
+import (
+	"bytes"
+	_ "embed"
+	"github.com/Minizbot2012/minxdr"
+)
+
 type KeyMaps struct {
 	Usb   map[uint16]Key
 	Evdev map[uint16]Key
@@ -17,6 +23,13 @@ type Key struct {
 	Win   uint16
 	Mac   uint16
 	Code  string
+}
+
+//go:embed generated.bin
+var file []byte
+
+func init() {
+	minxdr.Unmarshal(bytes.NewReader(file), &Mappings)
 }
 
 var Mappings KeyMaps = KeyMaps{}

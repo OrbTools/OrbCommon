@@ -1,9 +1,8 @@
 package main
 
 import (
-	"encoding/json"
+	"github.com/Minizbot2012/minxdr"
 	"github.com/OrbTools/OrbCommon/hid"
-	xdr "github.com/minizbot2012/minxdr"
 	"io"
 	"io/fs"
 	"os"
@@ -60,11 +59,7 @@ func main() {
 		Arr = append(Arr, Keys)
 	}
 	KeyMaps.Arr = Arr
-	out, _ := os.Create("hid/generated.json")
 	xdo, _ := os.Create("hid/generated.bin")
 	defer xdo.Close()
-	defer out.Close()
-	jso, _ := json.Marshal(KeyMaps)
-	xdr.Marshal(xdo, KeyMaps)
-	out.Write(jso)
+	minxdr.Marshal(xdo, KeyMaps)
 }

@@ -3,6 +3,7 @@
     "IsColor": true,
     "MaxMappings": -1,
     "NumKeys": 26,
+    "NumColor": 3,
     "Device": {
         "SystemFile": "/dev/input/by-id/usb-Razer_Razer_Orbweaver_Chroma-event-kbd",
         "VendorID": 5426,
@@ -36,12 +37,10 @@
         105,
         57
     ],
-    "GuiPages": [
-        {
+    "GuiPages": [{
             "Name": "Grid",
             "Type": "PGrid",
-            "Keys": [
-                {
+            "Keys": [{
                     "KeyID": 0,
                     "KeyName": "01"
                 },
@@ -126,8 +125,7 @@
         {
             "Name": "Side Keys",
             "Type": "PList",
-            "Keys": [
-                {
+            "Keys": [{
                     "KeyID": 20,
                     "KeyName": "Upper Button"
                 },
