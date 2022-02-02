@@ -1,8 +1,12 @@
 package devices
 
 import (
-	_ "embed"
+	"bytes"
+	"embed"
 	"github.com/Minizbot2012/minxdr"
+	"io"
+	"io/fs"
+	"strings"
 )
 
 var DeviceTypes map[string]*DeviceDef
@@ -52,7 +56,7 @@ func init() {
 	for _, file := range files {
 		dev := new(DeviceDef)
 		data, _ := df.ReadFile("xdr/" + file.Name())
-		_, err := mindxdr.Unmarshal(bytes.NewReader(data), dev)
+		_, err := minxdr.Unmarshal(bytes.NewReader(data), dev)
 		if err != nil {
 			panic(err.Error())
 		}

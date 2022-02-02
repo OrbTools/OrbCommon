@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	xdr "github.com/Minizbot2012/minxdr"
+	"github.com/Minizbot2012/minxdr"
 	"github.com/OrbTools/OrbCommon/devices"
 )
 
@@ -16,7 +16,7 @@ func main() {
 		DevDef := &devices.DeviceDef{}
 		json.Unmarshal(data, DevDef)
 		xdo, _ := os.Create("devices/xdr/" + strings.Split(file.Name(), ".")[0] + ".bin")
-		xdr.Marshal(xdo, DevDef)
+		minxdr.Marshal(xdo, DevDef)
 		xdo.Close()
 	}
 }
