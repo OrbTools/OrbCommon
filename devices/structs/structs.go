@@ -2,9 +2,9 @@ package structs
 
 //KeyMap singular keymap
 type KeyMap struct {
-	Device string
 	Keymap []uint16
 	Color  []byte
+	Device string
 }
 
 //KeyMaps a set of keymaps
